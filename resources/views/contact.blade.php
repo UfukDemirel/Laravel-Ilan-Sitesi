@@ -6,7 +6,7 @@
             <div class="page-heading-content text-center">
                 <h3 class="title">İletişim</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('company')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('company')}}">Anasayfa</a></li>
                     <li class="breadcrumb-item active">İletişim</li>
                 </ol>
             </div>

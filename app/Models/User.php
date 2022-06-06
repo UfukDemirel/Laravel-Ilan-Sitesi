@@ -116,4 +116,12 @@ class User extends Authenticatable
             ->where('id','=',Auth::id())
             ->get();
     }
+
+    public function companies(){
+        return $this->select('*')->where('permission_level','=','user')->orderBy('id','desc')->get();
+    }
+
+    public function post($id){
+        return $this->select('*')->where('id',$id)->where('permission_level','=','user')->orderBy('id','desc')->get();
+    }
 }

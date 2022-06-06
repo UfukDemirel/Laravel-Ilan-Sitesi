@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Nis 2022, 19:16:38
+-- Üretim Zamanı: 06 Haz 2022, 11:24:45
 -- Sunucu sürümü: 10.4.20-MariaDB
 -- PHP Sürümü: 8.0.9
 
@@ -51,7 +51,8 @@ CREATE TABLE `advert` (
 
 INSERT INTO `advert` (`advert_id`, `users_id`, `companyEmail`, `companyLogo`, `companyContent`, `companyName`, `companyRole`, `companyLocation`, `companyPhone`, `operationTime`, `price`, `companyAbout`, `companyWebSite`, `isonline`, `updated_at`) VALUES
 (6, 5, 'ufukdemirel234@gmail.com', NULL, 'Laravel Developer', 'Demirel Holding', 'Müdür', 'esentepe mahallesi', '05413441269', 'Full-Time', '2000 TL', 'Lorem Ipsum, masaüstü yayıncılık ve basın yayın sektöründe kullanılan taklit yazı bloğu olarak tanımlanır. Lipsum, oluşturulacak şablon ve taslaklarda içerik yerine geçerek yazı bloğunu doldurmak için kullanılır.', 'www.ufukdemirel.com', '1', '2022-04-16 17:09:12'),
-(7, 5, 'ufukdemirel234@gmail.com', NULL, 'Laravel Developer', 'Demirel Holding', 'Müdür', 'esentepe mahallesi', '05413441269', 'Full-Time', '700 TL', 'Lorem Ipsum, masaüstü yayıncılık ve basın yayın sektöründe kullanılan taklit yazı bloğu olarak tanımlanır. Lipsum, oluşturulacak şablon ve taslaklarda içerik yerine geçerek yazı bloğunu doldurmak için kullanılır.', 'www.ufukdemirel.com', '1', '2022-04-16 17:07:57');
+(7, 5, 'ufukdemirel234@gmail.com', NULL, 'Laravel Developer', 'Demirel Holding', 'Müdür', 'esentepe mahallesi', '05413441269', 'Full-Time', '700 TL', 'Lorem Ipsum, masaüstü yayıncılık ve basın yayın sektöründe kullanılan taklit yazı bloğu olarak tanımlanır. Lipsum, oluşturulacak şablon ve taslaklarda içerik yerine geçerek yazı bloğunu doldurmak için kullanılır.', 'www.ufukdemirel.com', '1', '2022-04-16 17:07:57'),
+(8, 5, 'ufukdemirel234@gmail.com', NULL, 'Php Developer', 'Demirel Holding', 'Müdür', 'esentepe mahallesi', '05413441269', 'Full-Time', '3000 TL', 'sadsadasdsadsad', 'www.ufukdemirel.com', '1', '2022-06-05 15:19:50');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2021_12_06_173244_create_settings_table', 1),
 (7, '2014_10_12_000000_create_users_table', 2),
 (8, '2022_02_28_203542_admin', 3),
-(9, '2022_03_17_172533_create_image_uploads_table', 4);
+(9, '2022_03_17_172533_create_image_uploads_table', 4),
+(10, '2022_06_05_124829_create_admin_table', 5);
 
 -- --------------------------------------------------------
 
@@ -249,7 +251,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `companyRole`, `password`, `companyName`, `category`, `companyLocation`, `companyPhone`, `companyTeamSize`, `companyWebSite`, `file`, `companyFounded`, `companyAbout`, `email_verified_at`, `active`, `permission_level`, `county`, `city`, `remember_token`, `created_at`, `updated_at`) VALUES
 (5, 'Ufuk', 'Demirel', 'ufukdemirel234@gmail.com', 'Müdür', '$2y$10$zhUn1n/.iFnZxi2nofAbKeGLzpW4tBcZA.yYYrjB.tZ0n4cslxj/e', 'Demirel Holding', '1', 'esentepe mahallesi', '05413441269', '25', 'www.ufukdemirel.com', 'company-1.png', '2020', 'sadsadasdsadsad', NULL, 1, 'user', 'Sarıçam', 'Adana', NULL, NULL, NULL),
-(6, 'Hudson', 'Hornet', 'demirelu456@gmail.com', 'Müdür', '$2y$10$kDfXOP2Ono6P5aWVLAb6B.EdhJVq2xtNZ8DbxgYyK8r7.IbXFkG6u', 'Hudson Hornet', '2', 'esentepe mahallesi', '05413441269', '25', 'www.ufukdemirel.com', 'company-2.png', '2020', 'sadsadasdsadsad', NULL, 1, 'admin', NULL, NULL, NULL, NULL, NULL);
+(8, 'Ufuk', 'Demirel', 'demirelu456@gmail.com', NULL, '$2y$10$4L4ix4OX4IjjaS.TIQLdwOPKLW5KbXIJd2fVlfMCejGpvt5VR/sXe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'admin', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -327,7 +329,7 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `advert`
 --
 ALTER TABLE `advert`
-  MODIFY `advert_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `advert_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `category`
@@ -357,7 +359,7 @@ ALTER TABLE `image_uploads`
 -- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `personal_access_tokens`
@@ -375,7 +377,7 @@ ALTER TABLE `settings`
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

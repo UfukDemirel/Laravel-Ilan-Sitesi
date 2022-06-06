@@ -4,9 +4,10 @@
     <div class="slider-section section">
         <div class="page-heading-section section bg-parallax" data-bg-image="/assets/images/slider/slider-2.jpg" data-overlay="10">
             <div class="page-heading-content text-center">
-                <h1 class="title">Şirketi Düzenle</h1>
+                <h3 class="title">Şirketi Düzenle</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('company')}}">Anasayfa</a></li>
+                    <li class="breadcrumb-item active"><a href="{{route('edit')}}">Şirketi Düzenle</a></li>
                 </ol>
             </div>
         </div>

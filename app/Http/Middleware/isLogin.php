@@ -18,7 +18,7 @@ class isLogin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return redirect()->route('company');
+            return $next($request);
         }
     }
 }

@@ -5,7 +5,7 @@
         <div class="page-heading-content text-center">
             <h3 class="title">Şirketler</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('company')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('company')}}">Anasayfa</a></li>
                 <li class="breadcrumb-item active">İçerik</li>
             </ol>
         </div>

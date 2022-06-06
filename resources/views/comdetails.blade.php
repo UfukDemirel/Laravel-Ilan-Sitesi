@@ -7,7 +7,7 @@
             <h3 class="title">{{$key->companyName}}</h3>
             @endforeach
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('company')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('company')}}">Anasayfa</a></li>
                 <li class="breadcrumb-item"><a href="{{route('companylist')}}">Companies</a></li>
             </ol>
         </div>

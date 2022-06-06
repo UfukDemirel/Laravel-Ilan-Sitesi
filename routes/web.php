@@ -19,10 +19,13 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('logpost', [LoginController::class, 'logpost'])->name('logpost');
 Route::post('reg', [LoginController::class, 'reg'])->name('reg');
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::prefix('/')->middleware('isUser')->group(function (){
 Route::get('details/{id}', [UserController::class,'details'])->name('details');
@@ -44,17 +47,20 @@ Route::post('store',[ImageUploadController::class,"store"]);
 Route::get('exit', [LoginController::class, 'exit'])->name('exit');
 });
 
-Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::prefix('/')->middleware('isLogout')->group(function (){
+Route::get('admin', [AdminController::class, 'admin'])->name('admin');
+Route::post('adminpost', [AdminController::class, 'adminpost'])->name('adminpost');
+});
 
-
-Route::get('home', [AdminController::class,'home'])->name('home');
-Route::get('adsdetails', [AdminController::class,'adsdetails'])->name('adsdetails');
-Route::get('userdetails/{id}', [AdminController::class,'userdetails'])->name('userdetails');
-Route::post('userdetailspost/{id}', [AdminController::class,'userdetailspost'])->name('userdetailspost');
-Route::get('userdelete/{id}',[AdminController::class,"userdelete"])->name('userdelete');
-Route::get('companydetails', [AdminController::class,'companydetails'])->name('companydetails');
-Route::get('del',[AdminController::class,"del"])->name('del');
-
+Route::prefix('/')->middleware('isAdmin')->group(function (){
+Route::get('destroy', [AdminController::class, 'destroy'])->name('destroy');
+Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('adminadvert', [AdminController::class, 'adminadvert'])->name('adminadvert');
+Route::get('create/{id}',[AdminController::class,"create"])->name('create');
+Route::post('createpost/{id}',[AdminController::class,"createpost"])->name('createpost');
+Route::get('remove/{id}',[AdminController::class,"remove"])->name('remove');
+Route::get('companies',[AdminController::class,"companies"])->name('companies');
+Route::get('companiesedit/{id}',[AdminController::class,"companiesedit"])->name('companiesedit');
+Route::post('companieseditpost/{id}',[AdminController::class,"companieseditpost"])->name('companieseditpost');
+Route::get('stop/{id}',[AdminController::class,"stop"])->name('stop');
+});
